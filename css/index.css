@@ -1,0 +1,256 @@
+header {
+    color: #fff;
+    height: 10%;
+    position: relative;
+}
+
+main {
+    position: relative;
+    /* background-image: url(../img/denglu_zuoshangjiao.png); */
+    height: 100%;
+}
+
+/* 标题 */
+.title {
+    position: absolute;
+    /* left: 50%; */
+    /* transform: translateX(-35%); */
+    text-align: center;
+    top: 20%;
+    z-index: 100;
+    width: 100%;
+    font-size: 45px;
+}
+
+/* 标题底部横线 */
+
+.line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4.5rem;
+    width: 9rem;
+    height: 0.0625rem;
+    background: linear-gradient(to left, #0A2B70, #0286D0, #0A2B70);
+}
+
+/* 登录部分 */
+section {
+    z-index: 999;
+}
+
+.login {
+    width: calc(100% / 6);
+    height: calc(100% / 3.5);
+    ;
+    min-width: 25rem;
+    min-height: 25rem;
+    background-color: rgba(28, 31, 82, 0.7);
+    border: 0.0625rem solid #0B3A68;
+    position: absolute;
+    top: calc(100% / 5);
+    right: 15%;
+}
+
+/* 登录标题 */
+.login_header {
+    margin: 1.25rem auto;
+    text-align: center;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+/* 表单区域 */
+.login_body {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+}
+
+/* 输入框区域 */
+.input_body_username,
+.input_body_password {
+    width: 80%;
+    height: 3rem;
+    border: 1px solid #00B8FE;
+    border-radius: 5px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    background-color: rgba(28, 31, 82, 0.7);
+}
+
+.input_body_password {
+    top: 70%;
+}
+
+.login_icon {
+    height: 1.5625rem;
+    margin-top: 0.6rem;
+    margin-left: 1rem;
+    color: #D0D3DC;
+}
+
+.login_input {
+    position: absolute;
+    left: 15%;
+    top: 0.3rem;
+    height: 2.5rem;
+    width: 85%;
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    background-color: #1C1F52;
+    color: #fff;
+}
+
+/* 输入框自动填充样式修改 */
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* 账号密码验证提示 */
+.tips_username,
+.tips_password {
+    position: absolute;
+    left: 0;
+    top: 3.75rem;
+    color: red;
+}
+
+/* 登录按钮 */
+.submit {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 80%;
+    height: 2.8125rem;
+    background-color: #00B8FE;
+    border: 0.0625rem solid #00B8FE;
+    border-radius: 0.3125rem;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 0.0625rem 0.0625rem 0.0625rem #00B8FE;
+    font-size: 1.25rem;
+}
+
+
+/* 登录区域四角样式 */
+.horn-left-top,
+.horn-right-top,
+.horn-left-bottom,
+.horn-right-bottom {
+    position: absolute;
+    border: 0.1875rem solid #00B8FE;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.horn-left-top,
+.horn-right-top {
+    top: 0;
+}
+
+.horn-left-bottom,
+.horn-right-bottom {
+    bottom: 0;
+}
+
+.horn-left-top,
+.horn-left-bottom {
+    left: 0;
+}
+
+.horn-right-top,
+.horn-right-bottom {
+    right: 0;
+}
+
+.horn-left-top {
+    border-right: 0.3125rem solid rgba(28, 31, 82, 0);
+    border-bottom: 0.3125rem solid rgba(28, 31, 82, 0);
+}
+
+.horn-right-top {
+    border-left: 0.3125rem solid rgba(28, 31, 82, 0);
+    border-bottom: 0.3125rem solid rgba(28, 31, 82, 0);
+}
+
+.horn-left-bottom {
+    border-top: 0.3125rem solid rgba(28, 31, 82, 0);
+    border-right: 0.3125rem solid rgba(28, 31, 82, 0);
+}
+
+.horn-right-bottom {
+    border-top: 0.3125rem solid rgba(28, 31, 82, 0);
+    border-left: 0.3125rem solid rgba(28, 31, 82, 0);
+}
+
+/* 楼房图片 */
+.loufang,
+.guangxiao {
+    position: absolute;
+    left: 10%;
+    top: 0;
+    z-index: 8;
+    width: 90%;
+    height: 100%;
+    min-width: 75rem;
+    min-height: 50rem;
+}
+
+.loufang {
+    background-image: url(../img/denglu_loufang.png);
+    background-size: 90% 100%;
+    background-repeat: no-repeat;
+}
+
+.guangxiao {
+    background-image: url(../img/denglu_guangxiao.png);
+    background-size: 90% 100%;
+    background-repeat: no-repeat;
+}
+
+
+
+/* 代码雨特效 */
+#cvs {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* 粒子波浪效果 */
+canvas {
+    display: block;
+}
+
+.waves {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(100% / 3);
+}
+
+/* 圆点连线特效 */
+#dotLine {
+    position: absolute;
+    top: 0;
+    right: 10%;
+}
+
+
+/* 星光特效 */
+#stars {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    z-index: 10;
+}

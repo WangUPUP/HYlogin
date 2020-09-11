@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/gobal.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+	<script type="text/javascript" src="../js/jquery.min.js" ></script>
+</head>
+<body>
+	<header>
+        <div class="title">恒溢科技有限公司
+            <div class="line"></div>
+        </div>
+        <!-- <div class="line"></div> -->
+	</header>
+	<main>
+		<!-- 登录区 -->
+		<section class="login">
+			<div class="login_header"><h1>用户登录</h1></div>
+			<form  method="post" name="form" id="form"> 
+				<div class="login_body">
+					<div class="input_body_username">
+						<img src="../img/denglu-xuanzhong.png" class="login_icon">
+						<input type="text" placeholder="用户名" required name="username" id="username" class="login_input"/>
+                        <span class="tips_username" id="tips_username"></span>
+                    </div>
+					<div class="input_body_password">
+                        <img src="../img/mima-buxianshi.png" class="login_icon">
+						<input type="password" placeholder="密码" required name="password" id="password" class="login_input"/>
+                        <span class="tips_password" id="tips_password"></span>
+                    </div>
+				</div>
+				<input type="button" class="submit" id="loginBtn" value="登 录" >
+				
+		</form>
+		<!-- 登录框四角 -->
+			<div class="horn-left-top"></div>
+			<div class="horn-right-top"></div>
+			<div class="horn-left-bottom"></div>
+			<div class="horn-right-bottom"></div>
+		</section>
+    </main> 
+	<!-- 动画区 -->
+		<div class="animation">
+		<!-- 粒子波浪 -->
+			<div class="waves"></div>
+		<!-- 代码雨 -->
+		<div>
+			<canvas id="cvs"></canvas>
+		</div>
+		<!-- 浮动楼房 -->
+		<div >
+            <div class="loufang"></div>
+            <div class="guangxiao"></div>
+		</div>
+		<!-- 圆点连线特效 -->
+		<div>
+        <canvas id="dotLine"></canvas>
+		</div>
+		<!-- 星光特效 -->
+		<div>
+			<canvas id="stars" width="500" height="400"></canvas>
+		</div>
+    </div> 
+	<script type="text/javascript" src="../js/wave.js" ></script>
+	<script type="text/javascript" src="../js/codeRain.js" ></script>
+	<script type="text/javascript" src="../js/dotLine.js" ></script>
+    <script type="text/javascript" src="../js/stars.js" ></script>
+</body>
+<script>
+	$(function(){
+        var href = "http://192.168.1.21:30000/uc/user/login";
+        
+        $("#username").blur(function(){
+            $('#tips_username').text('')
+        });   
+        $("#password").blur(function(){
+            $('#tips_password').text('')
+        });   
+
+		// 表单提交前 发送ajax请求 根据请求判断账号密码是否正确
+		$("#loginBtn").click(function(){
+			var username = $("#username").val();//取值
+            var password = $("#password").val();
+			var param = {"username":username,"password":password};
+            
+				$.post(href,param,function(result){
+                    if( result.redirectUrl) {
+                        document.getElementById("form").reset();
+                        window.location.href= result.redirectUrl
+                    } else if(result.status === 500){
+                        if( result.message === '用户不存在' || result.message === '用户名不能为空') {
+                            $('#tips_username').text(result.message)
+                        } else {
+                            $('#tips_password').text(result.message)
+                        }
+                    } else {
+                        console.log(result);
+                    }
+                    });
+                });
+			});	
+</script>
+</html>
